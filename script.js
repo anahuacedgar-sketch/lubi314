@@ -1,9 +1,8 @@
+// ============================
+// WhatsApp (sin mensaje)
+// ============================
 const PHONE = document.body?.dataset.phone || "5215654913491"; // Editable en <body data-phone="">
-const MESSAGE =
-  document.body?.dataset.message ||
-  "Hola, quiero cotizar. Soy (empresa/escuela): ____. Entrega en (colonia/CP): ____. Lista y cantidades: ____.";
-
-const whatsappUrl = `https://wa.me/${PHONE}?text=${encodeURIComponent(MESSAGE)}`;
+const whatsappUrl = `https://wa.me/${PHONE}`; // SIN ?text=...
 
 const ctaIds = ["cta-hero", "cta-contacto", "cta-sticky"];
 
@@ -16,11 +15,17 @@ ctaIds.forEach((id) => {
   }
 });
 
+// ============================
+// Año en footer
+// ============================
 const yearEl = document.getElementById("year");
 if (yearEl) {
   yearEl.textContent = new Date().getFullYear();
 }
 
+// ============================
+// Carruseles (prev/next)
+// ============================
 const carousels = document.querySelectorAll("[data-carousel]");
 carousels.forEach((carousel) => {
   const track = carousel.querySelector(".carousel-track");
@@ -32,7 +37,7 @@ carousels.forEach((carousel) => {
   const getStep = () => {
     const slide = track.querySelector(".carousel-slide");
     if (!slide) return track.clientWidth;
-    return slide.getBoundingClientRect().width + 16;
+    return slide.getBoundingClientRect().width + 16; // 16 = gap CSS
   };
 
   prev.addEventListener("click", () => {
