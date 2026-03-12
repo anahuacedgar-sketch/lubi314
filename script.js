@@ -1,8 +1,8 @@
 // ============================
 // WhatsApp (sin mensaje)
 // ============================
-const PHONE = document.body?.dataset.phone || "5215654913491"; // Editable en <body data-phone="">
-const whatsappUrl = `https://wa.me/${PHONE}`; // SIN ?text=...
+const PHONE = document.body?.dataset.phone || "5215657064991"; // número oficial
+const whatsappUrl = `https://wa.me/${PHONE}`;
 
 const ctaIds = ["cta-hero", "cta-contacto", "cta-sticky"];
 
@@ -27,6 +27,7 @@ if (yearEl) {
 // Carruseles (prev/next)
 // ============================
 const carousels = document.querySelectorAll("[data-carousel]");
+
 carousels.forEach((carousel) => {
   const track = carousel.querySelector(".carousel-track");
   const prev = carousel.querySelector(".carousel-btn.prev");
@@ -37,7 +38,7 @@ carousels.forEach((carousel) => {
   const getStep = () => {
     const slide = track.querySelector(".carousel-slide");
     if (!slide) return track.clientWidth;
-    return slide.getBoundingClientRect().width + 16; // 16 = gap CSS
+    return slide.getBoundingClientRect().width + 16;
   };
 
   prev.addEventListener("click", () => {
